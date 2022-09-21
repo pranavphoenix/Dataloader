@@ -10,6 +10,8 @@ from torch.utils.data import DataLoader
 from torch.utils.data import Dataset
 import os, glob
 from torchvision.io import read_image, ImageReadMode
+torch.backends.cudnn.benchmarks = True
+torch.backends.cudnn.deterministic = True
 
 batch_size = 64
 
@@ -65,7 +67,7 @@ transform_train = transforms.Normalize((122.4598, 114.2580, 101.3656), (70.4909,
 transform_test = transforms.Normalize((122.9611, 114.5793, 101.4786), (70.4953, 68.6092, 71.9997))
 
 trainset = TrainTinyImageNetDataset(id=id_dict, transform = transform_train)
-trainloader = torch.utils.data.DataLoader(trainset, batch_size=batch_size, shuffle=True, num_workers=2)
+trainloader = torch.utils.data.DataLoader(trainset, batch_size=batch_size, shuffle=True, num_workers=2, pin_memory=True, prefetch_factor=2, persistent_workers=2)
 
 testset = TestTinyImageNetDataset(id=id_dict, transform=transform_test)
-testloader = torch.utils.data.DataLoader(testset, batch_size=batch_size, shuffle=False, num_workers=2)
+testloader = torch.utils.data.DataLoader(testset, batch_size=batch_size, shuffle=False, num_workers=2, pin_memory=True, prefetch_factor=2, persistent_workers=2)
