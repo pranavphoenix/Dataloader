@@ -61,7 +61,7 @@ class TestTinyImageNetDataset(Dataset):
             image = self.transform(image.type(torch.FloatTensor))
         return image, label
 
-transform_train = transforms.Normalize((122.4786, 114.2755, 101.3963), (70.4924, 68.5679, 71.8127))
+transform_train = transforms.Normalize((122.4598, 114.2580, 101.3656), (70.4909, 68.5596, 71.8058))
 transform_test = transforms.Normalize((122.9611, 114.5793, 101.4786), (70.4953, 68.6092, 71.9997))
 
 trainset = TrainTinyImageNetDataset(id=id_dict, transform = transform_train)
