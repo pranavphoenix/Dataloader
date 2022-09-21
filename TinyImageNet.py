@@ -61,10 +61,11 @@ class TestTinyImageNetDataset(Dataset):
             image = self.transform(image.type(torch.FloatTensor))
         return image, label
 
-transform = transforms.Normalize((122.4786, 114.2755, 101.3963), (70.4924, 68.5679, 71.8127))
+transform_train = transforms.Normalize((122.4786, 114.2755, 101.3963), (70.4924, 68.5679, 71.8127))
+transform_test = transforms.Normalize((122.9611, 114.5793, 101.4786), (70.4953, 68.6092, 71.9997))
 
-trainset = TrainTinyImageNetDataset(id=id_dict, transform = transform)
+trainset = TrainTinyImageNetDataset(id=id_dict, transform = transform_train)
 trainloader = torch.utils.data.DataLoader(trainset, batch_size=batch_size, shuffle=True, num_workers=2)
 
-testset = TestTinyImageNetDataset(id=id_dict, transform=transform)
+testset = TestTinyImageNetDataset(id=id_dict, transform=transform_test)
 testloader = torch.utils.data.DataLoader(testset, batch_size=batch_size, shuffle=False, num_workers=2)
