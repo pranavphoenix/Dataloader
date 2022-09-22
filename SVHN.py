@@ -17,14 +17,14 @@ transform_extra = transforms.Compose(
 trainset = torchvision.datasets.SVHN(root='./data', split = 'train',  transform=transform_train,
                                         download=True)
 trainloader = torch.utils.data.DataLoader(trainset, batch_size=batch_size,
-                                          shuffle=True, num_workers=2)
+                                          shuffle=True, num_workers=2, pin_memory=True, prefetch_factor=2, persistent_workers=2)
 
 testset = torchvision.datasets.SVHN(root='./data', split = 'test',  transform=transform_test, 
                                        download=True)
 testloader = torch.utils.data.DataLoader(testset, batch_size=batch_size,
-                                         shuffle=False, num_workers=2)
+                                         shuffle=False, num_workers=2, pin_memory=True, prefetch_factor=2, persistent_workers=2)
 
 extraset = torchvision.datasets.SVHN(root='./data', split = 'extra',  transform=transform,
                                         download=True)
 extraloader = torch.utils.data.DataLoader(extraset, batch_size=batch_size,
-                                          shuffle=True, num_workers=2)
+                                          shuffle=True, num_workers=2, pin_memory=True, prefetch_factor=2, persistent_workers=2)
