@@ -8,3 +8,4 @@
 - Cifar 10
 - Cifar 100
 - STL 10
+- Places365 standard
