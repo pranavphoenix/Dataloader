@@ -9,3 +9,5 @@
 - Cifar 100
 - STL 10
 - Places365 standard
+
+The code to compute the mean and standard deviation of the datasets is all included
