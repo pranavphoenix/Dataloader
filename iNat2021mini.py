@@ -22,5 +22,5 @@ transform_test = transforms.Compose(
 trainset = torchvision.datasets.ImageFolder(root='/content/train_mini', transform=transform_train)
 testset = torchvision.datasets.ImageFolder(root='/content/val', transform=transform_test)
 
-trainloader = torch.utils.data.DataLoader(trainset, batch_size=batch_size, shuffle=True, num_workers=2)
-testloader = torch.utils.data.DataLoader(testset, batch_size=batch_size, shuffle=False, num_workers=2)
+trainloader = torch.utils.data.DataLoader(trainset, batch_size=batch_size, shuffle=True, num_workers=2, pin_memory=True, prefetch_factor=2, persistent_workers=2)
+testloader = torch.utils.data.DataLoader(testset, batch_size=batch_size, shuffle=False, num_workers=2, pin_memory=True, prefetch_factor=2, persistent_workers=2)
