@@ -6,3 +6,4 @@
 - SVHN
 - iNaturalist 2021 Mini
 - Cifar 10
+- Cifar 100
