@@ -11,12 +11,12 @@ batch_size = 96
 
 transform_train = transforms.Compose(
         [ transforms.Resize([256,256]),
-            transforms.ToTensor().
+            transforms.ToTensor(),
          transforms.Normalize((0.4642, 0.4807, 0.3768), (0.2345, 0.2255, 0.2442)) ])
 
 transform_test = transforms.Compose(
         [ transforms.Resize([256,256]),
-            transforms.ToTensor().
+            transforms.ToTensor(),
          transforms.Normalize((0.4643, 0.4808, 0.3769), (0.2349, 0.2259, 0.2445)) ])
 
 trainset = torchvision.datasets.ImageFolder(root='/content/train_mini', transform=transform_train)
