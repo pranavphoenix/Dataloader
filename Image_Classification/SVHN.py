@@ -21,7 +21,7 @@ transform_extra = transforms.Compose(
 trainset = torchvision.datasets.SVHN(root='./data', split = 'train',  transform=transform_train,
                                         download=True)
 
-extraset = torchvision.datasets.SVHN(root='./data', split = 'extra',  transform=transform,
+extraset = torchvision.datasets.SVHN(root='./data', split = 'extra',  transform=transform_extra,
                                         download=True)
 
 trainset = ConcatDataset([trainset, extraset])
