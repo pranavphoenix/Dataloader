@@ -13,7 +13,7 @@ import os, glob
 torch.backends.cudnn.benchmarks = True
 torch.backends.cudnn.deterministic = True
 
-
+#change /workspace/ to current folder
 
 id_dict = {}
 for i, line in enumerate(open('/workspace/tiny-imagenet-200/wnids.txt', 'r')):
